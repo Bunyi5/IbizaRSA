@@ -1,5 +1,3 @@
-import helper.RandomBigInteger;
-
 import java.math.BigInteger;
 
 public class MillerRabin {
