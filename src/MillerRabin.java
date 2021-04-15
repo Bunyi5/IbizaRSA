@@ -26,7 +26,7 @@ public class MillerRabin {
     private static boolean millerRabinTest(BigInteger n, BigInteger m) {
 
         BigInteger a = RandomBigInteger.generateRandomBigInteger(BigInteger.TWO, n);
-        BigInteger x = ModPow.modPow(a, m, n);
+        BigInteger x = Mod.modPow(a, m, n);
 
         if (x.equals(BigInteger.ONE) || x.equals(n.subtract(BigInteger.ONE)))
             return true;
