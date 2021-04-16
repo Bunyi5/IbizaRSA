@@ -84,4 +84,15 @@ public class RSA {
 
         return m;
     }
+
+    @Override
+    public String toString() {
+        return "RSA: \n" +
+                "p = " + p +
+                "\nq = " + q +
+                "\nn = " + n +
+                "\nphiN = " + phiN +
+                "\ne = " + e +
+                "\nd = " + d;
+    }
 }
