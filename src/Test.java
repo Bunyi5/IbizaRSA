@@ -15,5 +15,15 @@ public class Test {
         System.out.println(MillerRabin.isPrime(new BigInteger("87"), 7)); //false
         System.out.println(MillerRabin.isPrime(new BigInteger("69"), 4)); //false
         System.out.println(MillerRabin.isPrime(new BigInteger("1109"), 2)); //true
+
+        System.out.println("Euclidean");
+        System.out.println(Euclidean.euclidean(new BigInteger("112"), new BigInteger("63")).toString()); // 7
+        System.out.println(Euclidean.euclidean(new BigInteger("139"), new BigInteger("14")).toString()); // 1
+
+        System.out.println("Extended Euclidean");
+        BigInteger[] test1 = Euclidean.extEuclidean(new BigInteger("112"), new BigInteger("63"));
+        BigInteger[] test2 = Euclidean.extEuclidean(new BigInteger("139"), new BigInteger("14"));
+        System.out.println("Lnko: " + test1[0] + ", x: " + test1[1] + ", y: " + test1[2]); // 7, 4, -7
+        System.out.println("Lnko: " + test2[0] + ", x: " + test2[1] + ", y: " + test2[2]); // 1, -1, 10
     }
 }
