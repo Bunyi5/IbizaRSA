@@ -7,7 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         RSA rsa = new RSA();
-//        RSA rsa = new RSA(new BigInteger("37"), new BigInteger("89"), new BigInteger("785"));
+//        RSA rsa = new RSA(new BigInteger("463"), new BigInteger("547"), new BigInteger("47"));
+//        RSA rsa = new RSA(new BigInteger("17"), new BigInteger("23"));
         while (true) {
             System.out.println("What do you want to do?(e = enc, d = dec, k = keys, q = quit)");
             String nextStep = scanner.nextLine();

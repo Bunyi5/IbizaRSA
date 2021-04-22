@@ -15,6 +15,15 @@ public class RSA {
         this.d = Mod.modInverse(e, phiN);
     }
 
+    public RSA(BigInteger p, BigInteger q) {
+        this.p = p;
+        this.q = q;
+        this.n = p.multiply(q);
+        this.phiN = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
+        this.e = chooseSmallestE();
+        this.d = Mod.modInverse(e, phiN);
+    }
+
     public RSA(BigInteger p, BigInteger q, BigInteger e) {
         this.p = p;
         this.q = q;
@@ -22,6 +31,19 @@ public class RSA {
         this.phiN = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
         this.e = e;
         this.d = Mod.modInverse(e, phiN);
+    }
+
+    private BigInteger chooseSmallestE() {
+        BigInteger maybeE = BigInteger.TWO;
+
+        for (BigInteger i = new BigInteger("2"); i.compareTo(phiN) < 0; i = i.add(BigInteger.ONE)) {
+            if (Euclidean.euclidean(i, phiN).equals(BigInteger.ONE)) {
+                maybeE = i;
+                break;
+            }
+        }
+
+        return maybeE;
     }
 
     private BigInteger chooseE() {
